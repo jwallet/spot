@@ -1,0 +1,11 @@
+{
+  "app_name": "Spot",
+  "icon_path_darwin": "resources/favicon-32.png",
+  "icon_path_linux": "resources/favicon-32.png",
+  "icon_path_windows": "resources/favicon.ico",
+  "environments": [
+    { "arch": "amd64", "os": "linux" },
+    { "arch": "amd64", "os": "windows" },
+    { "arch": "amd64", "os": "darwin" }
+  ]
+}
