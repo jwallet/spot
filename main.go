@@ -3,22 +3,25 @@ package main
 import (
 	"fmt"
 	"log"
-	"net/http"
 	"os/exec"
 	"runtime"
 )
 
 func main() {
-	fs := http.FileServer(http.Dir("./frontend/web-build"))
-	http.Handle("/", fs)
+	server.StartServer()
+	ui.LoadApp()
+	// fs := http.FileServer(http.Dir("./frontend/web-build"))
+	// http.Handle("/", fs)
 
-	openbrowser("http://localhost:3000")
+	// openbrowser("http://localhost:3000")
 	
-	log.Print("Listening on :3000...")
-	err := http.ListenAndServe(":3000", nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+	// log.Print("Listening on :3000...")
+	// err := http.ListenAndServe(":3000", nil)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+
 }
 
 func openbrowser(url string) {

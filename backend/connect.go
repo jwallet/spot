@@ -1,6 +1,8 @@
-package spot
+package main
 
 import (
+	"fmt"
+
 	"github.com/librespot-org/librespot-golang/librespot/core"
 	"github.com/librespot-org/librespot-golang/librespot/mercury"
 	"github.com/librespot-org/librespot-golang/librespot/player"
@@ -25,6 +27,8 @@ func login() (*MobileSession, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	fmt.Println(sess.Username())
 
 	return initSessionImpl(sess)
 }
