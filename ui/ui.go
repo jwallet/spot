@@ -1,22 +1,22 @@
 package ui
 
 import (
-	"github.com/fyne-io/fyne/v2/app"
-	"github.com/fyne-io/fyne/v2/container"
-	"github.com/fyne-io/fyne/v2/widget"
+	"net/http"
+
+	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/widget"
 )
 
-func LoadApp() {
-	a := app.New()
-	w := a.NewWindow("Hello")
-	
+func LoadApp(w fyne.Window) {
 	hello := widget.NewLabel("Hello Fyne!")
 	w.SetContent(container.NewVBox(
 		hello,
 		widget.NewButton("Hi!", func() {
-			hello.SetText("Welcome :)")
+			res, _ := http.Get("http://localhost:3001/login")
+			if res.StatusCode == 200 {
+				hello.SetText("Logged in")
+			}
 		}),
 	))
-
-	w.ShowAndRun()
 }
